@@ -1,0 +1,8 @@
+{
+  "name": "vocabulearner",
+  "app_id": "6a44d269",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
