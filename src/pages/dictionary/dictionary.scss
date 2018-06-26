@@ -1,0 +1,55 @@
+@import 'src/theme/variables';
+
+page-dictionary {
+    #level-image{
+        width:100%;
+        height:auto;
+        margin: 0 auto;
+    }
+    .character-choices{
+        width:100%;
+        height:auto;
+    }
+
+    .answer-col{
+        padding:0;
+        margin:0;
+    }
+
+    .answer-col{
+        padding:0;
+        margin:0;
+        
+    }
+    
+    .answer-placeholder{
+        background: #fff;
+        height:50px;
+        .bg-image{
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+        &.progressing{
+            border: solid color($colors, primary);
+        }
+        &.done{
+            border: solid color($colors, danger);
+        }
+    }
+
+    .character-placeholder{
+        height: 50px;
+        background: #f0f0f0;
+    }
+
+    ion-card{
+        margin:0!important;
+        width:100%!important;
+        padding:0!important;
+        ion-card-content{
+            padding:0!important;
+        }
+    }
+}   

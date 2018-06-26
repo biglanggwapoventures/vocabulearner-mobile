@@ -1,0 +1,29 @@
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>Language Selection</ion-title>
+		<ion-buttons end> 
+			<button [disabled]="!selectedLanguage" ion-button (click)="goTo()">
+				Proceed <ion-icon name="arrow-forward" margin-left></ion-icon> 
+			</button> 
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-list radio-group  [(ngModel)]="selectedLanguage">
+
+		<ion-list-header>
+			Select your preferred language
+		</ion-list-header>
+	  
+		<ion-item *ngFor="let language of languages">
+			<ion-label>{{ language.language_name }}</ion-label>
+			<ion-radio [value]="language"></ion-radio>
+		</ion-item>
+	  
+	</ion-list>
+</ion-content>

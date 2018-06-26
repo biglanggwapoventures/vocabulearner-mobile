@@ -1,14 +1,22 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+    <ion-grid>
+        <ion-row justify-content-center align-items-center>
+
+            <ion-col>
+                <h1 ion-text text-center color="primary"><ion-icon name="book"></ion-icon></h1>
+                <h1 ion-text text-center>Vocabulearner</h1>
+            </ion-col> 
+
+        </ion-row>
+      <ion-row justify-content-center align-items-start>
+
+        <ion-col>
+            <button ion-button block large color="primary" margin-bottom (click)="selectLanguage('play')">PLAY GAME</button>
+            <button ion-button block large color="secondary" (click)="selectLanguage('study')">STUDY</button>
+        </ion-col> 
+
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>

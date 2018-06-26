@@ -1,0 +1,72 @@
+<ion-header margin-bottom>
+
+  <ion-navbar>
+    <ion-title>Level {{ levelNumber }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="level" padding>
+    <div text-center margin-top margin-bottom>
+        <img [src]="level.image.filepath" alt="level.image.english_term" id="level-image">
+    </div>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <h3>
+                    <ion-icon name="clock"></ion-icon>  
+                    <span *ngIf="timer; else timeOut">{{ timer }}</span>
+                    <ng-template #timeOut>
+                        <span color="danger">TIME IS UP!</span>
+                    </ng-template>
+                </h3>
+            </ion-col>
+            <ion-col text-right><h3><ion-icon name="star" margin-left></ion-icon>  {{ score }}</h3></ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card no-margin>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row justify-content-center>
+                    <ion-col col-2 *ngFor="let answer of answers; index as i" class="answer-col">
+                        <div class="answer-placeholder" [ngClass]="timer > 0 ? 'progressing' : 'done'">
+                            <div *ngIf="answer" class="bg-image" [style.background-image]="'url('+answer.filepath+')'"  (click)="removeAnswer(i)"></div>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+    <hr>
+    <ion-card no-margin no-padding >
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-2 *ngFor="let choice of choices; index as i">
+                        <img *ngIf="choice; else displayPlaceholder" [src]="choice.filepath" alt="choice.english_term" class="character-choices" (click)="performAnswer(i)">
+                        <ng-template #displayPlaceholder>
+                            <div class="character-placeholder"></div>
+                        </ng-template>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar [hidden]="timer">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <button ion-button color="danger" block large (click)="goToMainMenu()">MAIN MENU</button>
+                </ion-col>
+                <ion-col>
+                    <button ion-button color="primary" block large (click)="resetGame()">PLAY AGAIN</button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-footer>

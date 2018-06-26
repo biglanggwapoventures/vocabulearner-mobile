@@ -1,0 +1,31 @@
+<!--
+  Generated template for the DictionaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ selectedLanguage.language_name }} Dictionary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+        <ion-card *ngFor="let level of levels">
+            <img [src]="level.image.filepath">
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row justify-content-center>
+                        <ion-col col-2 *ngFor="let a of level.answer; index as i" class="answer-col">
+                            <div class="answer-placeholder progressing">
+                                <div class="bg-image" [style.background-image]="'url('+a.filepath+')'"></div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+</ion-content>
